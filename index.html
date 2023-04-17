@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     
+
+
+const portos = [
+  { estado: 'RJ', quantidade: 5 },
+  { estado: 'SC', quantidade: 4 },
+  { estado: 'BA', quantidade: 3 },
+  { estado: 'PA', quantidade: 3 },
+  { estado: 'RS', quantidade: 3 },
+  { estado: 'ES', quantidade: 2 },
+  { estado: 'PE', quantidade: 2 },
+  { estado: 'PR', quantidade: 2 },
+  { estado: 'RN', quantidade: 2 },
+  { estado: 'SP', quantidade: 2 },
+  { estado: 'RO', quantidade: 1 },
+  { estado: 'MA', quantidade: 1 },
+  { estado: 'CE', quantidade: 1 },
+  { estado: 'AP', quantidade: 1 },
+  { estado: 'AM', quantidade: 1 },
+  { estado: 'AL', quantidade: 1 },
+  { estado: 'PB', quantidade: 1 },
+];
+
+// calcula o total de portos
+const totalPortos = portos.reduce((total, porto) => total + porto.quantidade, 0);
+
+// cria um objeto para armazenar os percentuais por estado
+const percentuaisPorEstado = {};
+
+// calcula o percentual de portos por estado e armazena no objeto
+portos.forEach(porto => {
+  percentuaisPorEstado[porto.estado] = ((porto.quantidade / totalPortos) * 100).toFixed(2) + '%';
+});
+
+// exibe o relatorio
+console.log('Relatorio de portos do Brasil, por estado:');
+console.table(percentuaisPorEstado);
+    </script>
+    
+</body>
+</html>
